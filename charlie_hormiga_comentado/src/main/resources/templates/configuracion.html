@@ -1,0 +1,8 @@
+<!DOCTYPE html><html lang="es" xmlns:th="http://www.thymeleaf.org"><head><meta charset="UTF-8"><title>Charlie</title><link rel="stylesheet" th:href="@{/css/style.css}"></head><body><main>
+<h1>Configuración de la "Isla del Capricho"</h1>
+<!-- El formulario llena ConfiguracionDTO; después el Service lo transforma a entidad. -->
+<form th:action="@{/configurar}" th:object="${configuracionDTO}" method="post">
+<label>Filas <input type="number" th:field="*{filas}" min="1"></label><label>Columnas <input type="number" th:field="*{columnas}" min="1"></label>
+<label>Aumento de visión <input type="number" th:field="*{aumentoVision}" min="1"></label><label>Fila inicial <input type="number" th:field="*{posicionFila}" min="0"></label>
+<label>Columna inicial <input type="number" th:field="*{posicionColumna}" min="0"></label><label>Dirección (R/L/U/D) <input th:field="*{direccionInicial}"></label>
+<button>Configurar</button></form></main></body></html>

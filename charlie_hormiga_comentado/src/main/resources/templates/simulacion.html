@@ -1,0 +1,9 @@
+<!DOCTYPE html><html lang="es" xmlns:th="http://www.thymeleaf.org"><head><meta charset="UTF-8"><title>Configuración guardada</title><link rel="stylesheet" th:href="@{/css/style.css}"></head><body><main>
+<h1>Configuración #<span th:text="${config.id}"></span></h1>
+<p>Zona: <b th:text="${config.filas + ' x ' + config.columnas}"></b> | Aumento: <b th:text="${config.aumentoVision}"></b> | Dirección: <b th:text="${config.direccionInicial}"></b></p>
+<h2>Turistas relacionados</h2>
+<!-- Recorremos los registros HIJOS encontrados por configuracion_id. -->
+<table><tr><th>ID</th><th>Turista</th><th>Movimientos</th></tr><tr th:each="t:${turistas}"><td th:text="${t.id}"></td><td th:text="${t.nombreTurista}"></td><td th:text="${t.numeroMovimientos}"></td></tr></table>
+<!-- th:replace inserta aquí el fragmento reutilizable. -->
+<div th:replace="~{fragments/formulario-turista :: formularioTurista}"></div>
+<p><a th:href="@{/}">Crear otra configuración</a></p></main></body></html>

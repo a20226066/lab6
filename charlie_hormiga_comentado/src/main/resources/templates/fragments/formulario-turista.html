@@ -1,0 +1,15 @@
+<!DOCTYPE html><html xmlns:th="http://www.thymeleaf.org"><body>
+<!-- FRAGMENT: bloque reutilizable. No es una página independiente. -->
+<section th:fragment="formularioTurista">
+  <h2>Configuración de segundo nivel</h2>
+  <!-- th:object conecta este formulario con VisualizacionTuristaDTO. -->
+  <form th:action="@{/turista/guardar}" th:object="${turistaDTO}" method="post">
+    <!-- ID oculto: permite saber a qué Configuracion PADRE pertenece el turista. -->
+    <input type="hidden" th:field="*{configuracionId}">
+    <label>Nombre del turista <input th:field="*{nombreTurista}" required></label>
+    <!-- Este campo guarda el avance/número de movimientos de la visualización. -->
+    <label>Número de movimientos <input type="number" min="0" th:field="*{numeroMovimientos}" required></label>
+    <button type="submit">Guardar turista</button>
+  </form>
+</section>
+</body></html>
